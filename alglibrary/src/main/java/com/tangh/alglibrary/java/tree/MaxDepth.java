@@ -24,17 +24,24 @@ package com.tangh.alglibrary.java.tree;
 public class MaxDepth {
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(0);
-        root.left = new TreeNode(1);
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.right = new TreeNode(1);
+        new MaxDepth().maxDepth(root);
     }
 
+
     public int maxDepth(TreeNode root) {
-        if (root == null) return 0;
 
-        int heightLeft = maxDepth(root.left);
-        int heightRight = maxDepth(root.right);
+        if (root == null) {
+            return 0;
+        } else {
+            int left_height = maxDepth(root.left);
+            int right_height = maxDepth(root.right);
+            return java.lang.Math.max(left_height, right_height) + 1;
+        }
 
-        return Math.max(heightLeft, heightRight) + 1;
     }
 
 }

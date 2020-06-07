@@ -28,7 +28,6 @@ public class Permute {
     public List<List<Integer>> permute(int[] nums) {
 
 
-        Collections.swap();
 
         for (int i = 0; i < nums.length; i++) {
 
