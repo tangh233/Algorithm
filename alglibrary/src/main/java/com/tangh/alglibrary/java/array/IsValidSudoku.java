@@ -59,12 +59,14 @@ public class IsValidSudoku {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 int n = board[i][j];
+
+
             }
         }
         return false;
     }
 
     public static void main(String[] args) {
-
+        System.out.println(1/3);
     }
 }
