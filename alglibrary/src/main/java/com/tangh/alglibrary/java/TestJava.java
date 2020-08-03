@@ -1,12 +1,27 @@
 package com.tangh.alglibrary.java;
 
+import android.util.LruCache;
+import android.util.SparseArray;
+
+import com.alibaba.fastjson.JSON;
+
+import org.json.JSONObject;
+
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
+
 public class TestJava {
     public static void main(String[] args) {
-//        ListNode head = new ListNode(1);
-//        head.next = new ListNode(2);
-//        head.next.next = new ListNode(3);
-//        reverseList(head);
-        System.out.println("111");
+        TreeMap treeMap = new TreeMap();
+        treeMap.put("1", "2");
+
+//        SparseArray<String> sparseArray=new SparseArray<>();
+//        sparseArray.append(1,"11111");
+//        sparseArray.append(2,"2222222");
+
+
+//        System.out.println(JSON.toJSON(treeMap));
     }
 
 

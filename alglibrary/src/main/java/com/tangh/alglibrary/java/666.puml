@@ -1,0 +1,13 @@
+@startuml
+'Alice -> Bob: Authentication Request
+'Bob --> Alice: Authentication Response
+'
+'Alice -> Bob: Another authentication Request
+'Alice <-- Bob: another authentication Response
+
+直播列表->Server:请求榜单数据接口（周榜、日榜）
+Server-->直播列表:周、日榜单数据
+直播列表->直播列表:周榜前3、日榜前3缓存本地
+直播列表->直播列表榜单:刷新榜单数据
+
+@enduml
