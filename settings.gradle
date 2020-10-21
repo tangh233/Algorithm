@@ -1,3 +1,4 @@
+include ':JavaLib'
 rootProject.name='Algorithm'
 include ':app'
 include ':alglibrary'

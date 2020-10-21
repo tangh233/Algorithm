@@ -7,14 +7,30 @@ import com.alibaba.fastjson.JSON;
 
 import org.json.JSONObject;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.TreeMap;
 
 public class TestJava {
     public static void main(String[] args) {
-        TreeMap treeMap = new TreeMap();
-        treeMap.put("1", "2");
+
+        String 你好="hello---";
+        System.out.println(你好);
+
+        
+//        List<Integer> list=new ArrayList<>();
+//        List<String> objs=new ArrayList<>();
+//
+//
+//
+//        System.out.println(list.getClass()==objs.getClass());
+
+
+//        TreeMap treeMap = new TreeMap();
+//        treeMap.put("1", "2");
 
 //        SparseArray<String> sparseArray=new SparseArray<>();
 //        sparseArray.append(1,"11111");
@@ -23,7 +39,6 @@ public class TestJava {
 
 //        System.out.println(JSON.toJSON(treeMap));
     }
-
 
     public static ListNode reverseList(ListNode head) {
 
