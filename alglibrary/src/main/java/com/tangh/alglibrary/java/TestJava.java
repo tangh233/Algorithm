@@ -20,7 +20,7 @@ public class TestJava {
         String 你好="hello---";
         System.out.println(你好);
 
-        
+
 //        List<Integer> list=new ArrayList<>();
 //        List<String> objs=new ArrayList<>();
 //
