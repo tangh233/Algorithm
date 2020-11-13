@@ -1,42 +1,38 @@
 package com.tangh.alglibrary.offer;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.Stack;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
 public class MinStack {
 
     Stack<Integer> stack;
-    TreeMap<Integer, Integer> treeMap;
+    Stack<Integer> sortStack;
 
     /**
      * initialize your data structure here.
      */
     public MinStack() {
-        stack = new Stack();
-        treeMap = new TreeMap<>();
+        stack = new Stack<>();
+        sortStack = new Stack<>();
     }
 
     public void push(int x) {
-        treeMap.put(x, treeMap.getOrDefault(x, 0) + 1);
+
+        if (sortStack.isEmpty()) {
+            sortStack.push(x);
+        } else {
+            int minVal = sortStack.peek();
+            if (x < minVal) {
+                sortStack.push(x);
+            } else {
+                sortStack.push(minVal);
+            }
+        }
         stack.push(x);
     }
 
     public void pop() {
-        int val = stack.pop();
-        int count = treeMap.getOrDefault(val, 0) - 1;
-        if (count <= 0) {
-            treeMap.remove(val);
-        } else {
-            treeMap.put(val, count);
-        }
+        stack.pop();
+        sortStack.pop();
     }
 
     public int top() {
@@ -44,7 +40,7 @@ public class MinStack {
     }
 
     public int min() {
-        return treeMap.firstKey();
+        return sortStack.peek();
     }
 
     public static void main(String[] args) {
