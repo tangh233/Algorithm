@@ -3,6 +3,7 @@ package com.tangh.alglibrary.offer;
 import com.tangh.alglibrary.java.tree.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -28,25 +29,56 @@ public class LevelOrder {
     public List<List<Integer>> levelOrder(TreeNode root) {
         if (root == null) return new ArrayList<>();
 
-        List<List<Integer>> notes = new ArrayList<>();
-
+        List<List<Integer>> list = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
+
+
         while (!queue.isEmpty()) {
-            List<Integer> list = new ArrayList<>();
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
+
+            List<Integer> line = new ArrayList<>();
+            int count = queue.size();
+            for (int i = 0; i < count; i++) {
                 TreeNode note = queue.poll();
-                list.add(note.val);
+                line.add(note.val);
 
                 if (note.left != null) queue.offer(note.left);
                 if (note.right != null) queue.offer(note.right);
             }
 
-            notes.add(list);
+            int flag = list.size() & 1;
+            if (flag == 1) {
+                Collections.reverse(line);
+            }
+            list.add(line);
         }
-        return notes;
+
+        return list;
     }
+
+
+//    public List<List<Integer>> levelOrder(TreeNode root) {
+//        if (root == null) return new ArrayList<>();
+//
+//        List<List<Integer>> notes = new ArrayList<>();
+//
+//        Queue<TreeNode> queue = new LinkedList<>();
+//        queue.offer(root);
+//        while (!queue.isEmpty()) {
+//            List<Integer> list = new ArrayList<>();
+//            int size = queue.size();
+//            for (int i = 0; i < size; i++) {
+//                TreeNode note = queue.poll();
+//                list.add(note.val);
+//
+//                if (note.left != null) queue.offer(note.left);
+//                if (note.right != null) queue.offer(note.right);
+//            }
+//
+//            notes.add(list);
+//        }
+//        return notes;
+//    }
 
 
 //    public int[] levelOrder(TreeNode root) {
@@ -74,11 +106,11 @@ public class LevelOrder {
 //    }
 
     public static void main(String[] args) {
-        TreeNode node = new TreeNode(3);
-        node.left = new TreeNode(9);
-        node.right = new TreeNode(20);
-        node.right.left = new TreeNode(15);
-        node.right.right = new TreeNode(7);
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.right = new TreeNode(3);
+        node.left.left = new TreeNode(4);
+        node.right.right = new TreeNode(5);
         new LevelOrder().levelOrder(node);
     }
 }
