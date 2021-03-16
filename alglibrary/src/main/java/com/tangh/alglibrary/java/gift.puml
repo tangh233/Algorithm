@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+'Alice -> Bob: Authentication Request
+'Bob --> Alice: Authentication Response
+'
+'Alice -> Bob: Another authentication Request
+'Alice <-- Bob: another authentication Response
+
+礼物消息Socket -> 本地消息队列:进入本地缓存,礼物入队
+本地消息队列->礼物动画Player:if (player是闲置状态) 礼物出队
+礼物动画Player --> 本地消息队列:播放完成，状态重制
+本地消息队列 -> 本地消息队列:Queue非空，继续出队
+
+礼物消息Socket -> 本地消息队列:插队逻辑,自己插入队列头
+礼物消息Socket -> 本地消息队列:合并逻辑,土豪多次单刷某个火箭，消息累加 Hash
+礼物消息Socket -> 本地消息队列:本地消息设置边界值100，超过丢弃
+
+@enduml
+
