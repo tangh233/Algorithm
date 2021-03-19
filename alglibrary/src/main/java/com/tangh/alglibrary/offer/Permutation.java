@@ -1,6 +1,10 @@
 package com.tangh.alglibrary.offer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * 剑指 Offer 38. 字符串的排列
@@ -17,39 +21,45 @@ import java.util.ArrayList;
  * 1 <= s 的长度 <= 8
  */
 public class Permutation {
-    char[] tmp;
-    ArrayList result = new ArrayList();
+
+
+    ArrayList<String> list =new ArrayList<>();
 
     public String[] permutation(String s) {
-        char[] chars = s.toCharArray();
-        tmp = new char[chars.length];
+        char[] array = s.toCharArray();
+        dfs(array, 0);
 
-        dfs(chars, 0);
+        return list.toArray(new String[list.size()]);
     }
 
-    private void dfs(char[] chars, int i) {
-        if (i >= chars.length) return;
-
-        swap(chars, i, 0);
-
-        for (int j = 0; j < chars.length; j++) {
-            tmp[j] = chars[j];
-
+    private void dfs(char[] array, int index) {
+        if (index >= array.length) {
+            String s = String.valueOf(array);
+            list.add(s);
+            System.out.println(s);
+            return;
         }
 
-        dfs(chars, i + 1);
+        HashSet<Character> hashSet =new HashSet<>();
+
+        for (int i = index; i < array.length; i++) {
+            if(hashSet.contains(array[i])) continue;
+            hashSet.add(array[i]);
+
+            swap(array, index, i);
+            dfs(array, index + 1);
+            swap(array, index, i);
+        }
     }
 
-    private void swap(char[] chars, int i, int j) {
-        if (i == j) return;
-
-        char tmp = chars[i];
-        chars[i] = chars[j];
-        chars[j] = tmp;
+    private void swap(char[] array, int index, int i) {
+        char tmp = array[index];
+        array[index] = array[i];
+        array[i] = tmp;
     }
 
 
     public static void main(String[] args) {
-
+        new Permutation().permutation("122");
     }
 }
