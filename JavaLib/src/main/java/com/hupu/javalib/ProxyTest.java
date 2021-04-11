@@ -12,22 +12,25 @@ public class ProxyTest {
     static class Dog implements Animal {
 
         @Override
-        public void say() {
-            System.out.println("wangwang！！！");
+        public void say(String msg) {
+            System.out.println("wangwang"+msg);
         }
     }
 
     public static void main(String[] args) {
-        Animal animal =new Dog();
-        Animal proxy = (Animal) ProxyTest.getProxy(animal);
-        proxy.say();
+
+        Animal proxy = (Animal) ProxyTest.getProxy(Animal.class);
+        proxy.say("1");
+        proxy.say("2");
+
     }
 
-    public static Object getProxy(Object obj) {
-        return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), new InvocationHandler() {
+    public static Object getProxy(Class service) {
+        return Proxy.newProxyInstance(service.getClassLoader(),new Class[]{service}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] objects) throws Throwable {
-                return method.invoke(obj, objects);
+//                method.getAnnotation()
+                return method.invoke(new Dog(), objects);
             }
         });
     }

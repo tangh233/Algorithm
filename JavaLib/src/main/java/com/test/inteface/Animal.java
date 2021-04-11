@@ -1,5 +1,5 @@
 package com.test.inteface;
 
 public interface Animal {
-    void say();
+    void say(String msg);
 }

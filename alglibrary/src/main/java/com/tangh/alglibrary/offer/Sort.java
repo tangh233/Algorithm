@@ -23,20 +23,31 @@ public class Sort {
     }
 
     private int partition(int[] array, int start, int end) {
+        int baseIndex = end;
+        int baseValue = array[end];
+        int left = start;
+        int right = end - 1;
 
-        int p = start-1;
-        for (int i = start; i <= end; i++) {
-            if (array[i] < array[end]) {
-                p++;
+        while (left < right) {
 
-                if (i > p)
-                    swap(p, i, array);
+            if(array[left] > baseValue && array[right] <= baseValue){
+                swap(left,right,array);
+            }
+
+            if (array[left] <= baseValue) {
+                left++;
+            } else {
+                right--;
             }
         }
 
-        swap(p + 1, end, array);
+        if(array[left] > baseValue){
+            array[baseIndex] = array[left];
+            array[left] = baseValue;
+        }
 
-        return p + 1;
+
+        return baseIndex;
     }
 
     private void swap(int p, int i, int[] array) {

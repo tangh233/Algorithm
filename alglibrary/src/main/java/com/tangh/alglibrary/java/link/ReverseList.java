@@ -1,5 +1,7 @@
 package com.tangh.alglibrary.java.link;
 
+import java.util.Stack;
+
 /**
  * 206. 反转链表
  * <p>
@@ -12,7 +14,18 @@ package com.tangh.alglibrary.java.link;
  */
 public class ReverseList {
     public static void main(String[] args) {
+        ListNode listNode = new ListNode(1);
+        listNode.next = new ListNode(2);
+        listNode.next.next = new ListNode(3);
+        listNode.next.next.next = new ListNode(4);
+        listNode.next.next.next.next = new ListNode(5);
 
+        ListNode tmpNode = new ReverseList().reverseList3(listNode);
+        while (tmpNode != null) {
+
+            System.out.print(tmpNode.val + "-");
+            tmpNode = tmpNode.next;
+        }
     }
 
     public ListNode reverseList(ListNode head) {
@@ -29,5 +42,47 @@ public class ReverseList {
         }
 
         return pre;
+    }
+
+    public ListNode reverseList2(ListNode head) {
+
+        Stack<ListNode> stack = new Stack();
+
+        while (head != null) {
+            stack.push(head);
+
+            head = head.next;
+        }
+
+        ListNode newHead = new ListNode(-1);
+        ListNode tmpHead = newHead;
+        while (!stack.isEmpty()) {
+            ListNode node = stack.pop();
+            tmpHead.next = node;
+            tmpHead = tmpHead.next;
+        }
+
+        tmpHead.next = null;
+
+
+        return newHead.next;
+    }
+
+    public ListNode reverseList3(ListNode head) {
+
+        ListNode preNode = null;
+        ListNode curNode = head;
+
+        while (head !=null){
+            ListNode tmp = head.next;
+            curNode.next = preNode;
+
+            preNode = head;
+            curNode = tmp;
+
+            head = tmp;
+        }
+
+        return preNode;
     }
 }
