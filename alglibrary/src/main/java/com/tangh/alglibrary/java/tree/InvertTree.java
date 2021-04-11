@@ -30,20 +30,30 @@ package com.tangh.alglibrary.java.tree;
  */
 public class InvertTree {
     public static void main(String[] args) {
+        TreeNode node =new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.left.left = new TreeNode(4);
+        node.left.right = new TreeNode(5);
+        node.right = new TreeNode(3);
+        node.right.left = new TreeNode(6);
+        node.right.right = new TreeNode(7);
 
+        TreeNode node1 = new InvertTree().invertTree2(node);
+        System.out.println(node1.val);
     }
 
-    public TreeNode invertTree(TreeNode root) {
-        if (root == null) return null;
-
-        TreeNode left = invertTree(root.left);
-        TreeNode right = invertTree(root.right);
-
-        root.left = right;
-        root.right = left;
 
 
-        return root;
+    public TreeNode invertTree2(TreeNode root){
+        if(root == null) return null;
+
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+
+        invertTree2(root.left);
+        invertTree2(root.right);
+
+       return root;
     }
-
 }
