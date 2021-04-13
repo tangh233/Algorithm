@@ -1,5 +1,6 @@
 package com.tangh.alglibrary.java.array;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -22,22 +23,50 @@ import java.util.Arrays;
  */
 public class Merge {
     public static void main(String[] args) {
-        int[] p1={1,2,3,0,0,0};
-        int[] p2={2,5,6};
-        merge(p1,p1.length,p2,p2.length);
+        int[] p1 = {1, 2, 3, 0, 0, 0};
+        int[] p2 = {2, 5, 6};
+
+
+        merge(p1, 3, p2, p2.length);
+        System.out.println(p1);
     }
+
+//    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+//        int[] tmp = new int[m + n];
+//
+//        int i = 0, j = 0;
+//        while (i < m && j < n) {
+//            int tmpNum = nums1[i] < nums2[j] ? nums1[i++] : nums2[j++];
+//            tmp[i + j - 1] = tmpNum;
+//        }
+//
+//        for (int k = 0; k < tmp.length; k++) {
+//            nums1[k] = tmp[k];
+//        }
+//    }
 
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
         int[] tmp = new int[m + n];
 
-        int i = 0, j = 0;
-        while (i < m && j < n) {
-            int tmpNum = nums1[i] < nums2[j] ? nums1[i++] : nums2[j++];
-            tmp[i + j - 1] = tmpNum;
+        int i = 0;
+        int j = 0;
+
+        while (true) {
+            if ((i + j) > tmp.length -1) break;
+            
+            if (nums1[i] <= nums2[j] && i < m) {
+                tmp[i + j] = nums1[i];
+                i++;
+
+            } else {
+                tmp[i + j] = nums2[j];
+                j++;
+            }
         }
 
-        for (int k = 0; k < tmp.length; k++) {
-            nums1[k] = tmp[k];
-        }
+//        for (int k = 0; k < ; k++) {
+//
+//        }
+
     }
 }

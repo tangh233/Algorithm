@@ -16,20 +16,46 @@ package com.tangh.alglibrary.java.array;
 public class MaxSubArray {
     public static void main(String[] args) {
         int[] array = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        maxSubArray(array);
+        int i = maxSubArray(array);
+        System.out.println(i);
     }
+
+//    public static int maxSubArray(int[] nums) {
+//
+//
+//        int currNums = nums[0];
+//        int maxNums = nums[0];
+//        for (int i = 0; i < nums.length; i++) {
+//            currNums = Math.max(currNums + nums[i], nums[i]);
+//            maxNums=Math.max(maxNums,currNums);
+//        }
+//
+//        return maxNums;
+//
+//    }
 
     public static int maxSubArray(int[] nums) {
+        int sumNum = nums[0];
 
-
-        int currNums = nums[0];
-        int maxNums = nums[0];
-        for (int i = 0; i < nums.length; i++) {
-            currNums = Math.max(currNums + nums[i], nums[i]);
-            maxNums=Math.max(maxNums,currNums);
+        int maxNum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            sumNum = Math.max(nums[i], sumNum + nums[i]);
+            maxNum = Math.max(sumNum, maxNum);
         }
 
-        return maxNums;
-
+        return maxNum;
     }
+
+
+    public int climbStairs(int n) {
+        int count = 0;
+
+        for (int i = 1; i <= n; i++) {
+            if(i==1) count= 1;
+            if(i==2) count= 2;
+
+        }
+        return 1;
+    }
+
 }
