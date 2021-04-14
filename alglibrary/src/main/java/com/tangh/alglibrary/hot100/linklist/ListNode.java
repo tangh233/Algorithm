@@ -1,14 +1,11 @@
-package com.tangh.alglibrary.hot100;
+package com.tangh.alglibrary.hot100.linklist;
 
 public class ListNode {
 
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
-    ListNode() {
-    }
-
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
