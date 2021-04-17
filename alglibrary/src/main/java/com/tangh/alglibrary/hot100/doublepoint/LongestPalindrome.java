@@ -1,6 +1,4 @@
-package com.tangh.alglibrary.hot100;
-
-import java.util.HashMap;
+package com.tangh.alglibrary.hot100.doublepoint;
 
 /**
  * 5. 最长回文子串
@@ -35,22 +33,59 @@ import java.util.HashMap;
  */
 public class LongestPalindrome {
     public static void main(String[] args) {
-        String s = new LongestPalindrome().longestPalindrome("bacabab");
+        String s = new LongestPalindrome().longestPalindrome("ccc");
         System.out.println(s);
 
     }
 
     public String longestPalindrome(String s) {
-        if (s.length() < 2) return s;
+        if (s == null) return null;
+        if (s.length() <= 1) return s;
+
+        String subStr;
+        String maxStr = s.charAt(0) + "";
+
+        for (int i = 1; i < s.length(); i++) {
+
+            boolean isSame = s.charAt(i) == s.charAt(i - 1);
+
+            if (isSame) {
+                subStr = s.charAt(i) + "" + s.charAt(i);
+                String sub = getMaxString(i - 2, i + 1, s, subStr);
 
 
-        for (int i = 0; i < s.length(); i++) {
+                subStr = s.charAt(i) + "";
+                String sub2 = getMaxString(i - 1, i + 1, s, subStr);
+
+                subStr = sub.length() >= sub2.length() ? sub : sub2;
+
+            } else {
+                subStr = s.charAt(i) + "";
+                subStr = getMaxString(i - 1, i + 1, s, subStr);
+            }
 
 
-
+            if (subStr.length() > maxStr.length()) {
+                maxStr = subStr;
+            }
         }
 
+        return maxStr;
+    }
 
+    private String getMaxString(int left, int right, String s, String subStr) {
+
+        while (left >= 0 && right < s.length()) {
+            if (s.charAt(left) == s.charAt(right)) {
+                subStr = s.charAt(left) + subStr + s.charAt(right);
+                left--;
+                right++;
+            } else {
+                break;
+            }
+        }
+
+        return subStr;
     }
 
 
