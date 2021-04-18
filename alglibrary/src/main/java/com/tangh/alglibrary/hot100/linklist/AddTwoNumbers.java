@@ -1,5 +1,7 @@
 package com.tangh.alglibrary.hot100.linklist;
 
+import com.tangh.alglibrary.hot100.ListNode;
+
 /**
  * 2. 两数相加
  * 难度

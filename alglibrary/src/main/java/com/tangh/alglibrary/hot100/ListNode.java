@@ -1,4 +1,4 @@
-package com.tangh.alglibrary.hot100.linklist;
+package com.tangh.alglibrary.hot100;
 
 public class ListNode {
 
