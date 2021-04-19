@@ -37,8 +37,19 @@ package com.tangh.alglibrary.hot100.dp;
 public class MaxSubArray {
     public static void main(String[] args) {
         int[] nums =new int[]{-2,1,-3,4,-1,2,1,-5,4};
-        int i = new MaxSubArray().maxSubArray(nums);
+        int i = new MaxSubArray().maxSubArray2(nums);
         System.out.println(i);
+    }
+
+    public int maxSubArray2(int[] nums){
+        int curMax = nums[0];
+        int maxSum = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            curMax = Math.max(nums[i],curMax+nums[i]);
+            maxSum = Math.max(maxSum,curMax);
+        }
+        return maxSum;
     }
 
     public int maxSubArray(int[] nums) {
