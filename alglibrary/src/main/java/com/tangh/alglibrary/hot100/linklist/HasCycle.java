@@ -45,6 +45,23 @@ import java.util.HashSet;
  * pos 为 -1 或者链表中的一个 有效索引 。
  */
 public class HasCycle {
+    public boolean hasCycle2(ListNode head) {
+        ListNode headFast = head;
+        ListNode headSlow = head;
+
+        while (headFast != null) {
+            if (headFast.next == null) return false;
+
+            if (headSlow == headFast) return true;
+
+            headFast = headFast.next.next;
+            headSlow = headSlow.next;
+        }
+
+
+        return false;
+    }
+
     public boolean hasCycle(ListNode head) {
         HashSet<ListNode> hashSet = new HashSet<>();
         while (head != null) {
