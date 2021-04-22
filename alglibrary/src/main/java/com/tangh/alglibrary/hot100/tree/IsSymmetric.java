@@ -1,4 +1,4 @@
-package com.tangh.alglibrary.hot100.recursion;
+package com.tangh.alglibrary.hot100.tree;
 
 import com.tangh.alglibrary.java.tree.TreeNode;
 

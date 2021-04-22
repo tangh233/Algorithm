@@ -1,8 +1,5 @@
-package com.tangh.alglibrary.hot100.linklist;
+package com.tangh.alglibrary.hot100.link;
 
-import com.tangh.alglibrary.hot100.ListNode;
-
-import java.util.HashMap;
 import java.util.HashSet;
 
 /**

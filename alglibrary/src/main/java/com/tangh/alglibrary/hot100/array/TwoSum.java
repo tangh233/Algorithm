@@ -1,4 +1,4 @@
-package com.tangh.alglibrary.hot100.hashmap;
+package com.tangh.alglibrary.hot100.array;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package com.tangh.alglibrary.hot100;
+package com.tangh.alglibrary.hot100.tree;
 
 public class TreeNode {
     public int val;

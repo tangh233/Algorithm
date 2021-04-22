@@ -1,4 +1,4 @@
-package com.tangh.alglibrary.hot100.sidewindow;
+package com.tangh.alglibrary.hot100.string;
 
 import java.util.HashMap;
 

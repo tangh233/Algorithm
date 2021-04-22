@@ -1,4 +1,4 @@
-package com.tangh.alglibrary.hot100.doublepoint;
+package com.tangh.alglibrary.hot100.array;
 
 /**
  * 11. 盛最多水的容器

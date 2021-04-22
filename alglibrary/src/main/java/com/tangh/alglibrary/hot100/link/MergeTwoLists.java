@@ -1,6 +1,4 @@
-package com.tangh.alglibrary.hot100.linklist;
-
-import com.tangh.alglibrary.hot100.ListNode;
+package com.tangh.alglibrary.hot100.link;
 
 /**
  * 21. 合并两个有序链表
