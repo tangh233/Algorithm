@@ -1,6 +1,4 @@
-package com.tangh.alglibrary.hot100.linklist;
-
-import com.tangh.alglibrary.hot100.ListNode;
+package com.tangh.alglibrary.hot100.link;
 
 import java.util.HashMap;
 import java.util.Stack;

@@ -1,4 +1,4 @@
-package com.tangh.alglibrary.hot100.recursion;
+package com.tangh.alglibrary.hot100.tree;
 
 import java.util.ArrayList;
 import java.util.HashMap;

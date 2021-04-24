@@ -1,4 +1,4 @@
-package com.tangh.alglibrary.hot100.doublepoint;
+package com.tangh.alglibrary.hot100.string;
 
 /**
  * 5. 最长回文子串

@@ -1,6 +1,4 @@
-package com.tangh.alglibrary.hot100.recursion;
-
-import com.tangh.alglibrary.hot100.TreeNode;
+package com.tangh.alglibrary.hot100.tree;
 
 /**
  * 104. 二叉树的最大深度

@@ -1,4 +1,4 @@
-package com.tangh.alglibrary.hot100.doublepoint;
+package com.tangh.alglibrary.hot100.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
