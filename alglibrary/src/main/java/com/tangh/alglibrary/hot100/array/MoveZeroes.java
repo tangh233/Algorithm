@@ -22,12 +22,30 @@ package com.tangh.alglibrary.hot100.array;
 public class MoveZeroes {
 
     public static void main(String[] args) {
-//        int[] nums = new int[]{0,1,0,3,12};
-        int[] nums = new int[]{0, 0, 1};
-        new MoveZeroes().moveZeroes(nums);
+        int[] nums = new int[]{0,1,0,3,12};
+//        int[] nums = new int[]{0, 0, 1};
+        new MoveZeroes().moveZeroes3(nums);
 
         for (int i = 0; i < nums.length; i++) {
             System.out.print(nums[i] + " ");
+        }
+
+    }
+
+    public void moveZeroes3(int[] nums) {
+        int slow = 0;
+        int fast = 0;
+
+        while (fast < nums.length) {
+            if (nums[fast] != 0) {
+                int tmp = nums[slow];
+                nums[slow] = nums[fast];
+                nums[fast] = tmp;
+
+                slow++;
+            }
+            fast++;
+
         }
     }
 
@@ -40,7 +58,7 @@ public class MoveZeroes {
             }
         }
 
-        for(int i = pos; i < nums.length; i++){
+        for (int i = pos; i < nums.length; i++) {
             nums[i] = 0;
         }
     }

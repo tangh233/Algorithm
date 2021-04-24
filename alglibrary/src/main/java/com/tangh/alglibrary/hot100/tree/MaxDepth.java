@@ -1,5 +1,8 @@
 package com.tangh.alglibrary.hot100.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 104. 二叉树的最大深度
  * 难度
@@ -33,19 +36,15 @@ public class MaxDepth {
         treeNode.right.left = new TreeNode(15);
         treeNode.right.right = new TreeNode(7);
 
-        new MaxDepth().maxDepth(treeNode);
+        int i = new MaxDepth().maxDepth(treeNode);
+        System.out.println(i);
     }
 
 
     public int maxDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        int left = maxDepth(root.left);
-        int right = maxDepth(root.right);
+        if (root == null) return 0;
 
-        return Math.max(left, right) + 1;
-
+        return Math.max(maxDepth(root.left) + 1, maxDepth(root.right) + 1);
     }
 
 }
