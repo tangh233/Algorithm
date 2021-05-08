@@ -18,6 +18,20 @@ package com.tangh.alglibrary.hot100.link;
  */
 public class ReverseList {
 
+    public ListNode reverseList2(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+
+        while (cur != null){
+            ListNode tmp = cur.next;
+
+            cur.next = pre;
+
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
+    }
 
     public ListNode reverseList(ListNode head) {
         ListNode preNode = null;
