@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface IPageView{
+void sendPageView(IEventLog iEventLog)
+}
+
+abstract class BasePager{
++sendPageView(IEventLog iEventLog)
+}
+
+abstract BaseFragment{
++sendPageView(IEventLog iEventLog)
+}
+
+abstract class BaseTabFragment{
++sendPageView(IEventLog iEventLog)
+}
+
+class GameDetailPager{
+NeedEventLog
++sendPageView(IEventLog iEventLog)
+}
+
+annotation NeedEventLog
+class PageViewHelper
+
+IPageView <|-- BasePager
+IPageView <|-- BaseFragment
+IPageView <|-- BaseTabFragment
+BasePager <|-- GameDetailPager
+
+
+
+@enduml

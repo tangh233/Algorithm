@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+'Alice -> Bob: Authentication Request
+'Bob --> Alice: Authentication Response
+'
+'Alice -> Bob: Another authentication Request
+'Alice <-- Bob: another authentication Response
+group view事件
+View -> View:将EventLog里面的via和View关联并储存
+View -> 阿里云Server:曝光事件：包含EventLog
+end
+group 插桩实现
+View -> View:Click-记录View对应的via(原理同booth)
+View -> Pager:路由跳转，追加r_via
+end
+group 数据埋点
+Pager --> View:通过当前Pager取到r_via
+View -> 阿里云Server:view/click追加r_via
+end
+
+
+
+@enduml
+

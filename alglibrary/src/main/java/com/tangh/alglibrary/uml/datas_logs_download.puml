@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+'Alice -> Bob: Authentication Request
+'Bob --> Alice: Authentication Response
+'
+'Alice -> Bob: Another authentication Request
+'Alice <-- Bob: another authentication Response
+
+group click
+Button -> Button :paramId和当前view对应的booth进行映射保存
+Button -> LocalServer :启动下载更新等服务
+end
+LocalServer -> 阿里云:logs日志 ：根据paramId追加更新booth
+
+
+@enduml
+

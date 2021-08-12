@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+autonumber
+
+Pager -> Pager:添加NeedEventLog注解
+Pager --> 阿里云Server:BasePager里检查Class注解，如果有就不发送pv
+group
+Pager -> Server:接口请求
+Server --> Pager:接口数据返回，更新UI
+Pager -> 阿里云Server:使用sendPageView(IEventLog log)发送日志
+end
+@enduml

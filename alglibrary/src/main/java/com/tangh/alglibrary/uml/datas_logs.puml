@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+'Alice -> Bob: Authentication Request
+'Bob --> Alice: Authentication Response
+'
+'Alice -> Bob: Another authentication Request
+'Alice <-- Bob: another authentication Response
+
+group
+APP --> Activity:记录curActivity
+Activity --> Pager:获取topPager
+Pager --> View:获取topPager的View
+View --> APP:获取到当前topPager的View
+end
+APP --> APP:通过view组装r_booth和r_via
+APP -> LogsServer:上报logs日志
+
+
+
+@enduml
+
